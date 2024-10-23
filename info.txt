@@ -1,0 +1,21 @@
+the dataset was initially obtaineds manually from tech4Palestine discord/useful resources
+inside uncleanedData folder
+
+it was then categorised and placed into chatGPT to turn into a python dictionary 
+with url as key and value as a dictionary with userSummary and a category tag
+into summary.py
+at the bottom of summary.py is code to run to turn it into a json
+using code in getURLSnippet.py to get the og_description and og_title or any errors
+
+(TODO: moreToAdd.py is filled with links that needed more work fist)
+
+I then run makeEmbeddings.py to use Distilbert to make vector embeddings for combioned text and
+save into another json
+
+Then we can use search.py to search for a static prompt we put in the code as a variable,
+or we can use the flask application...
+
+
+python intifadaResources/flask/app.py
+will run a search application to search through the resources with natural language
+It runs on localHost with the AI hosted locally, shouldn't be too hard to convert to a website

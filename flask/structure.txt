@@ -1,0 +1,9 @@
+# flask_search_app/
+# │
+# ├── templates/
+# │   └── index.html      # HTML template for the search page
+# ├── static/
+# │   └── (optional: CSS, JS files if needed)
+# ├── data/
+# │   └── data_with_embeddings.json  # Your data with embeddings
+# └── app.py              # Flask application script

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Engine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .result {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Activism Resources Search</h1>
+        <form method="POST">
+            <input type="text" name="query" placeholder="Enter search term" value="{{ query }}">
+            <input type="submit" value="Search">
+        </form>
+
+        {% if results %}
+            <h2>Results for "{{ query }}":</h2>
+            {% for similarity, url in results %}
+                <div class="result">
+                    <p><strong>URL:</strong> <a href="{{ url }}" target="_blank">{{ url }}</a></p>
+                    <p><strong>Title:</strong> {{ data[url]['og_title'] }}</p>
+                    <p><strong>Summary:</strong> {{ data[url]['userSummary'] }}</p>
+                    <p><strong>Description:</strong> {{ data[url]['og_description'] }}</p>
+                    <p><strong>Category:</strong> {{ data[url]['userTags'] }}</p>
+                    <p><strong>Similarity Score:</strong> {{ similarity }}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>

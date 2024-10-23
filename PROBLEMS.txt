@@ -1,0 +1,21 @@
+#ogTitle and ogDescript are empty, were replaced with og_title and og_description
+
+#functions.py is duplicated to not have to deal with python import from parent folders,
+    this is only done for a script that converts terminal relative file names to code file relative file names
+    more experienced python developers will be able to find a more elegant solution
+
+#same as the data folder which has been duplicated inside the flask folder
+
+#the search is pretty sucky. How to make better:
+1) better user summaries, make a consistent format that works well and doesnt dilute meaning
+2) We could make three seperate vector embeddings for the userSummary and the ogDescription as well
+    as the url + og_title + tags. Then choose how much we want to contribute from each one.
+3) We could use a bigger LLM model that understands semantics better
+4) We could train an LLM on Palestine related words, perhaps start with confliBert or something already trained on similar words.
+5) we could add keyword search and weight it with vector similarity search
+6) make seperate weightings or search functions for short and long search prompts, 
+    which seem to perform quite differently in many LLM based search apps.
+
+#problems with seperate models:
+    we would need to make all embeddings again, the search embedding model must match the data embedding model.
+
